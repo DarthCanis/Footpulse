@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+
+  --color-brand-bg: #0A0B0E;
+  --color-brand-surface: #111318;
+  --color-brand-elevated: #161920;
+  --color-brand-border: #1E222B;
+  --color-brand-text-primary: #F5F6F8;
+  --color-brand-text-secondary: #8E95A5;
+  --color-brand-text-muted: #5A6275;
+  --color-brand-accent: #EF4444;
+  --color-brand-accent-hover: #DC2626;
+  --color-brand-live: #FF2B2B;
+}
+
+@layer base {
+  :root {
+    --brand-bg: #0A0B0E;
+    --brand-surface: #111318;
+    --brand-elevated: #161920;
+    --brand-border: #1E222B;
+    --brand-text-primary: #F5F6F8;
+    --brand-text-secondary: #8E95A5;
+    --brand-text-muted: #5A6275;
+    --brand-accent: #EF4444;
+    --brand-accent-hover: #DC2626;
+    --brand-live: #FF2B2B;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-text-primary font-sans antialiased selection:bg-brand-accent/20 selection:text-brand-accent;
+    background-color: #0A0B0E;
+    color: #F5F6F8;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

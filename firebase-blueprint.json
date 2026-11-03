@@ -1,0 +1,74 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile and Preferences",
+      "description": "User preferences including favorite clubs and leagues",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The unique Firebase Auth identifier of the user"
+        },
+        "favoriteClubs": {
+          "type": "array",
+          "description": "List of favorite club short names or identifiers"
+        },
+        "favoriteLeagues": {
+          "type": "array",
+          "description": "List of favorite league identifiers"
+        },
+        "savedQueries": {
+          "type": "array",
+          "description": "Search history or saved questions"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        }
+      },
+      "required": ["userId"]
+    },
+    "MatchComment": {
+      "title": "Match Comment",
+      "description": "User comments on live and finished football matches",
+      "type": "object",
+      "properties": {
+        "matchId": {
+          "type": "string",
+          "description": "Identifier of the target match"
+        },
+        "userId": {
+          "type": "string",
+          "description": "User ID of the commenter"
+        },
+        "userName": {
+          "type": "string",
+          "description": "Display name of the commenter"
+        },
+        "userAvatar": {
+          "type": "string",
+          "description": "Avatar url or letters"
+        },
+        "comment": {
+          "type": "string",
+          "description": "Text body of the comment"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["matchId", "userId", "userName", "comment"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User personal preferences, favorite clubs, and favorite leagues"
+    },
+    "/match_comments/{commentId}": {
+      "schema": "MatchComment",
+      "description": "Comments left on matches by verified fans"
+    }
+  }
+}

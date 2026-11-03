@@ -1,0 +1,6 @@
+{
+  "name": "FootPulse",
+  "description": "A responsive football hub featuring latest news, live matches, league standings, club listings, and player profiles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
